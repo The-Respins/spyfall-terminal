@@ -20,7 +20,7 @@ def revealPlayerRole(playerIndexNumber):
     if playerNames[playerIndexNumber] == spy:
         print("You are the spy. Try to pretend to be a regular player and figure out the location without revealing that you are the spy. Guess the location before  the time runs out, or before you get voted out.")
     else:
-        print("You are a regular player, ask questions to try to find out who the spy is without revealing the location to them. Form a majority consensus in the group to vote them out before the time runs out, or before they correctly guess the location.")
+        print(f"You are a regular player and the location is {location}. Ask questions to try to find out who the spy is without revealing the location to them. Form a majority consensus in the group to vote them out before the time runs out, or before they correctly guess the location.")
     input("\nPress Enter to erase this message. Then call the next player. After the last player gets their role, make sure the screen is visible to everyone. You all will be reminded of the gameplay and then prompted to start the stopwatch. After that, hitting enter prompts a confirmation to end the game, REVEALING the spy and location.\n")
     print(CLEAR_SCREEN)
     for _i in range(playerIndexNumber+1): #loop so they can see who already received role in the output after we clear the whole screen
@@ -63,6 +63,7 @@ def inputListener():
         if gameEndInput == "yes" or gameEndInput == "y":
             gameEndConfirmation = True
             print(gameOverRevealMessage)
+            input() #so that when using pyinstaller it, the window won't close before user can see the message
 
         activeDialog = False
 
